@@ -32,7 +32,6 @@ requirements:
     - ${{ compiler('cuda') }}
     - if: cuda_compiler_version != "None"
       then: cuda-version ==${{ cuda_compiler_version }}
-    - cuda-command-line-tools
     - cmake >=3.25
     - ninja
     - pkg-config
