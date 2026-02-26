@@ -14,7 +14,7 @@ source:
   sha256: f6ec0d5e6a2b601632720ed0be8aa7c8ba6f2d9bd63fac477cef2cfd088b5f16
 
 build:
-  number: 1
+  number: 2
   skip: cuda_compiler_version == "None" or win or osx
   script:
     env:
