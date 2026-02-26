@@ -72,6 +72,8 @@ tests:
   - files:
       source:
         - tests/
+      recipe:
+        - run_test.py
     requirements:
       run:
         - pip
