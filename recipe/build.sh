@@ -68,9 +68,11 @@ setup_parallel_build_jobs() {
 
 setup_parallel_build_jobs
 export CMAKE_GENERATOR=Ninja
-# GCC 14 false positive: -Wstringop-overflow in NanoVDB headers with deep template inlining at -O3
-# See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118817
-export CXXFLAGS="${CXXFLAGS} -Wno-error=stringop-overflow"
+# GCC 14 false positives in NanoVDB headers with deep template inlining at -O3:
+#   -Wstringop-overflow: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118817
+#   -Wmaybe-uninitialized: HDDA.h mDelta via cross-compiler inlining decisions
+export CXXFLAGS="${CXXFLAGS} -Wno-error=stringop-overflow -Wno-error=maybe-uninitialized"
+export CUDAFLAGS="${CUDAFLAGS} -Xcompiler=-Wno-error=maybe-uninitialized"
 
 if [[ "${build_platform}" != "${target_platform}" ]]; then
   if [[ "${target_platform}" == "linux-aarch64" ]]; then
