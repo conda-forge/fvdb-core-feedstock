@@ -18,7 +18,7 @@ build:
   skip: cuda_compiler_version == "None" or win or osx
   script:
     env:
-      TORCH_CUDA_ARCH_LIST: ${{ "9.0;10.0;12.0+PTX" if target_platform == "linux-aarch64" else "7.5;8.0;9.0;10.0;12.0+PTX" }}
+      TORCH_CUDA_ARCH_LIST: ${{ "9.0;10.0+PTX" if target_platform == "linux-aarch64" else "7.5;8.0;9.0;10.0;12.0+PTX" }}
 
 requirements:
   build:
