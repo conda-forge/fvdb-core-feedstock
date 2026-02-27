@@ -7,7 +7,7 @@ setup_parallel_build_jobs() {
       echo "Error: Unable to determine available RAM"
       exit 1
   fi
-  JOB_RAM_GB=2.5
+  JOB_RAM_GB=3
 
   # Get number of processors
   NPROC=$(nproc)
