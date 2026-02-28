@@ -18,7 +18,7 @@ source:
 build:
   number: 3
   skip: cuda_compiler_version == "None" or win or osx
-  string: cuda${{ cuda_compiler_version | replace(".", "") }}_py${{ PY_VER | replace(".", "") }}_h${{ PKG_HASH }}_${{ build_number }}
+  string: cuda${{ cuda_compiler_version | replace(".", "") }}_py${{ python | version_to_buildstring }}_h${{ hash }}_${{ build_number }}
   script:
     env:
       TORCH_CUDA_ARCH_LIST: ${{ "9.0;10.0+PTX" if target_platform == "linux-aarch64" else "7.5;8.0;9.0;10.0;12.0+PTX" }}
