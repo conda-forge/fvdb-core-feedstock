@@ -12,13 +12,15 @@ package:
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/fvdb_core-${{ version }}.tar.gz
   sha256: f6ec0d5e6a2b601632720ed0be8aa7c8ba6f2d9bd63fac477cef2cfd088b5f16
+  patches:
+    - cross-compile-get-torch.patch
 
 build:
   number: 2
   skip: cuda_compiler_version == "None" or win or osx
   script:
     env:
-      TORCH_CUDA_ARCH_LIST: '7.5;8.0;9.0;10.0;12.0+PTX'
+      TORCH_CUDA_ARCH_LIST: ${{ "9.0;10.0+PTX" if target_platform == "linux-aarch64" else "7.5;8.0;9.0;10.0;12.0+PTX" }}
 
 requirements:
   build:
