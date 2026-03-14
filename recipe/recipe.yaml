@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: fvdb-core
-  version: "0.4.0"
+  version: 0.4.0
   torch_proc_type: ${{ "cuda" if cuda_compiler_version != "None" else "cpu" }}
 
 package:
