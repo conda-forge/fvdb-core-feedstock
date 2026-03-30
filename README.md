@@ -143,3 +143,4 @@ Feedstock Maintainers
 
 * [@jameslamb](https://github.com/jameslamb/)
 * [@swahtz](https://github.com/swahtz/)
+
