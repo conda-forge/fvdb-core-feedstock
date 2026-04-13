@@ -61,7 +61,7 @@ requirements:
   run:
     - python
     - pytorch ${{ pytorch }}.*[build="*${{ torch_proc_type }}*"]
-    - ${{ pin_compatible('numpy') }}
+    - numpy
     - if: cuda_compiler_version != "None"
       then: cuda-version =${{ cuda_compiler_version }}
     - gitpython
