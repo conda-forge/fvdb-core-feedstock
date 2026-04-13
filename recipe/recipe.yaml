@@ -16,7 +16,7 @@ source:
     - cross-compile-get-torch.patch
 
 build:
-  number: 3
+  number: 4
   skip: cuda_compiler_version == "None" or win or osx
   string: torch${{ pytorch | replace(".", "") | replace("*", "") }}_cuda${{ cuda_compiler_version | replace(".", "") }}_py${{ python | version_to_buildstring }}_h${{ hash }}_${{ build_number }}
   script:
@@ -61,7 +61,7 @@ requirements:
   run:
     - python
     - pytorch ${{ pytorch }}.*[build="*${{ torch_proc_type }}*"]
-    - ${{ pin_compatible('numpy') }}
+    - numpy
     - if: cuda_compiler_version != "None"
       then: cuda-version =${{ cuda_compiler_version }}
     - gitpython
