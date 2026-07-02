@@ -94,5 +94,4 @@ $PYTHON -m pip install \
     --no-build-isolation \
     -vv \
     -C 'skbuild.ninja.make-fallback=false' \
-    -C 'cmake.define.NANOVDB_EDITOR_SKIP=ON' \
     .
