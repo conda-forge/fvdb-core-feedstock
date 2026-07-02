@@ -11,13 +11,20 @@ Summary: A deep learning framework for sparse, large-scale, high-performance spa
 
 Development: https://github.com/openvdb/fvdb-core
 
-Documentation: https://fvdb.ai/
+Documentation: https://openvdb.github.io/fvdb-core/
 
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/fvdb-core-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/fvdb-core-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
 </table>
 
 Current release info

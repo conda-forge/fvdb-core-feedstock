@@ -1,5 +1,4 @@
 azure:
-  free_disk_space: true
   settings_linux:
     swapfile_size: 10GiB
 conda_build:
@@ -14,3 +13,5 @@ build_platform:
 provider:
   linux_aarch64: default
   linux_ppc64le: default
+workflow_settings:
+  free_disk_space: quick
