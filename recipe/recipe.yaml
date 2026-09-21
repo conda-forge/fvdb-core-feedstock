@@ -14,6 +14,7 @@ source:
   sha256: aafa65208c82d193158c7e048d649c5e45ec4a3c375b57af8bd6f49e82225923
   patches:
     - cross-compile-get-torch.patch
+    - nvcc13-template-disambiguator.patch
 
 build:
   number: 0
