@@ -78,6 +78,16 @@ export CMAKE_GENERATOR=Ninja
 export CXXFLAGS="${CXXFLAGS} -Wno-error=stringop-overflow -Wno-error=maybe-uninitialized"
 export CUDAFLAGS="${CUDAFLAGS} -Xcompiler=-Wno-error=maybe-uninitialized"
 
+# nvcc warns #20050 on the __global__ inline functions in DeviceGridHandleUtils.cuh,
+# and fvdb builds CUDA sources with -Werror=all-warnings. The inline keeps the header
+# includable from many translation units, so suppress the diagnostic instead.
+export CUDAFLAGS="${CUDAFLAGS} -diag-suppress 20050"
+
+# GCC 15 defaults to -std=gnu23, where 'bool' is a keyword. Vendored c-blosc 1.21.4
+# still does `typedef _Bool bool` in shuffle.c and only sets -std=gnu99 on x86, so
+# aarch64 needs a pre-C23 standard supplied here.
+export CFLAGS="${CFLAGS} -std=gnu17"
+
 if [[ "${build_platform}" != "${target_platform}" ]]; then
   if [[ "${target_platform}" == "linux-aarch64" ]]; then
     TOOLKIT_TARGET="sbsa-linux"
