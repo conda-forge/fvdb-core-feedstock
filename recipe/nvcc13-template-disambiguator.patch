@@ -12,3 +12,16 @@ index 47af543..3dc3187 100644
                  prefetchSizes.emplace_back(elementCount * sizeof(ScalarType));
              }
          }
+diff --git a/src/fvdb/detail/ops/gsplat/RasterizeWorldSpaceGaussiansBackward.cu b/src/fvdb/detail/ops/gsplat/RasterizeWorldSpaceGaussiansBackward.cu
+index 24f4a4a..3c19aa4 100644
+--- a/src/fvdb/detail/ops/gsplat/RasterizeWorldSpaceGaussiansBackward.cu
++++ b/src/fvdb/detail/ops/gsplat/RasterizeWorldSpaceGaussiansBackward.cu
+@@ -693,7 +693,7 @@ launchBackwardPrivateUse1(const torch::Tensor &means,
+         for (const auto &outTensor: outTensors) {
+             const auto [elementOffset, elementCount] = deviceChunk(outTensor.numel(), deviceId);
+             if (elementCount > 0) {
+-                prefetchPointers.emplace_back(outTensor.data_ptr<float>() + elementOffset);
++                prefetchPointers.emplace_back(outTensor.template data_ptr<float>() + elementOffset);
+                 prefetchSizes.emplace_back(elementCount * sizeof(float));
+             }
+         }
