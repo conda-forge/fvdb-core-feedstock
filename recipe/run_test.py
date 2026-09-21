@@ -1,9 +1,5 @@
 import sys
 
-# Check for fvdb (without importing)
-import pkgutil
-pkgutil.find_loader("fvdb")
-
 # Try to import fvdb
 try:
     import fvdb
