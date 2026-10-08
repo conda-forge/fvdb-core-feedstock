@@ -195,6 +195,3 @@ Feedstock Maintainers
 * [@jameslamb](https://github.com/jameslamb/)
 * [@swahtz](https://github.com/swahtz/)
 
-
-<!-- dummy commit to enable rerendering -->
-
