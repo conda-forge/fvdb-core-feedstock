@@ -1,8 +1,4 @@
-azure:
-  settings_linux:
-    swapfile_size: 10GiB
 build_platform:
-  linux_aarch64: linux_64
   linux_ppc64le: linux_64
 conda_build:
   error_overlinking: true
@@ -16,3 +12,6 @@ provider:
   linux_ppc64le: default
 workflow_settings:
   free_disk_space: quick
+  pagefile_size:
+  - os: linux
+    value: 10
